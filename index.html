@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+  <html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+      content="Bienvenidos a Bodegas Argana, donde podes disfrutar de los mejores vinos. Descubre todos los topos de vinos que producuimos. Conoce nuestras fabricas y locales, llevate la mejor de las experiencias">
+
+    <!--Titulo-->
+    <title>Bodega Argana | Vinos Argentinos</title>
+
+    <!-- ICONO -->
+    <link rel="icon" href="./img/Argana-Favicon.png" type="image/x-icon">
+
+    <!-- CCS Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!--MI CSS-->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body class="color-bg">
+
+    <!----- Header ----->
+    <header class="navbar navbar-expand-lg encabezado fixed-top">
+      <div class="container-fluid">
+        <a href="#">
+          <img class="tamLogo" src="./img/bodega-argana.png" alt="logo">
+        </a>
+        <nav class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav setUl mx-auto" id="productosFiltrados">
+            <li class="nav-item marginLi">
+              <a class="li-link" href="#" data-filter="tinto"> Tinto </a>
+            </li>
+            <li class="nav-item marginLi">
+              <a class="li-link" href="#" data-filter="blanco"> Blanco </a>
+            </li>
+            <li class="nav-item marginLi">
+              <a class="li-link" href="#" data-filter="rosado"> Rosado </a>
+            </li>
+            <li class="nav-item marginLi">
+              <a class="li-link" href="#" data-filter="espumante"> Espumante </a>
+            </li>
+            <li class="nav-item marginLi">
+              <a class="li-link" href="#" data-filter="todos"> Todos </a>
+            </li>
+          </ul>
+        </nav>
+        <button class="navbar-toggler colorBoton" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="btnCarrito">
+          <svg class="btnCarrito" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path
+              d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z">
+            </path>
+          </svg>
+          <span id="contadorCarrito"></span>
+        </div>
+      </div>
+    </header>
+    <!----- Productos ----->
+
+    <h1 class="text-center">Bodega Argana</h1>
+    <hr>
+
+    <!-- Dropdown para filtrar por precio -->
+    <div class="container">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="filterPriceDropdown"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Filtrar por precio
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="filterPriceDropdown" id="filtroPrecio">
+          <li><a class="dropdown-item" href="#" data-sort="mayor-menor">Mayor a Menor</a></li>
+          <li><a class="dropdown-item" href="#" data-sort="menor-mayor">Menor a Mayor</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="loading" class="text-center" style="display: none;">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <div id="contenedorProductos" class="row"></div>
+
+    <div id="carritoTable" style="display: none;">
+      <div class="table-container">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Unidades</th>
+              <th>Costo Unitario</th>
+              <th>Costo Total</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="items"></tbody>
+          <tfoot id="totales"></tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!----- Footer ----->
+    <footer class="bg-dark text-white pt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <a href="#">
+              <img src="./img/footer_logo.png" alt="logo">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <h5>Sobre Nosotros</h5>
+            <p>Somos una bodega dedicada a la producción de vinos de alta calidad, combinando tradición y tecnología
+              para
+              ofrecer lo mejor de la viticultura argentina.</p>
+          </div>
+          <div class="col-md-3">
+            <h5>Contacto</h5>
+            <ul class="list-unstyled">
+              <li><a href="mailto:info@bodegasargana.com" class="text-white">bodega@argana.com</a></li>
+              <li><a href="tel:+541112345678" class="text-white">+## ## ####-####</a></li>
+              <li><a href="#" class="text-white">Ubicación</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Redes Sociales</h5>
+            <div>
+              <a href="https://www.flaticon.es/iconos-gratis/logotipo-de-instagram"
+                title="logotipo de instagram iconos"><img class="tamIcon" src="./img/instagram.png" alt="instagram"></a>
+              <a href="https://www.flaticon.es/iconos-gratis/logotipo-de-instagram"
+                title="logotipo de instagram iconos"><img class="tamIcon" src="./img/facebook.png" alt="facebook"></a>
+              <a href="https://www.flaticon.es/iconos-gratis/logotipo-de-instagram"
+                title="logotipo de instagram iconos"><img class="tamIcon" src="./img/linkedin.png" alt="linkedin"></a>
+              <a href="https://www.flaticon.es/iconos-gratis/logotipo-de-instagram"
+                title="logotipo de instagram iconos"><img class="tamIcon" src="./img/gorjeo.png" alt="X"></a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col text-center">
+            <p class="mb-0">&copy; 2024 Bodega Argana. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+    <!-- SCRIPT BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"></script>
+
+    <!-- SCRIPT SWEETALERT -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!----- Mis Script ----->
+    <script src="./js/main.js"></script>
+
+
+
+  </body>
+
+  </html>

@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: 133px;
+}
+
+.color-bg {
+    background-color: #e0e0e0af;
+}
+
+.encabezado {
+    padding: 15px;
+    background-color: rgb(161, 58, 125);
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.tamLogo {
+    width: 100%;
+}
+
+.colorBoton {
+    color: #ffffff;
+    background-color: rgb(9, 62, 177);
+}
+
+.setUl {
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.li-link {
+    padding: 5px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.marginLi {
+    margin: 15px;
+}
+
+.setUl a:hover {
+    background-color: #ffffffc9;
+    color: #a73369;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.btnCarrito {
+    width: 35px;
+    margin: 0 25px 0 25px;
+    transition: transform 0.3s, fill 0.3s;
+}
+
+.btnCarrito:hover {
+    transform: scale(1.2);
+    fill: #ffffff;
+    cursor: pointer;
+}
+
+.card {
+    margin: 50px 50px 50px 50px;
+    padding-bottom: 15px;
+}
+
+.desc {
+    text-align: justify;
+    margin: 15px;
+}
+
+.btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+#carritoTable {
+    position: fixed;
+    top: 10%;
+    right: 4%;
+    width: 45%;
+    max-height: 80vh;
+    z-index: 1050;
+}
+
+.table-container {
+    max-height: 45vh;
+    overflow-y: auto;
+}
+
+#carritoTable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#carritoTable th, #carritoTable td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+#carritoTable thead {
+    background-color: #f4f4f4;
+}
+
+#carritoTable tfoot {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+#carritoTable td img {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+}
+
+.tamIcon {
+    width: 50px;
+    margin: 10px;
+}
