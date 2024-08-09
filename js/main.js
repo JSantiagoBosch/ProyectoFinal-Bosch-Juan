@@ -14,7 +14,7 @@ let costoTotal = 0;
 
 const traerDatosJson = async () => {
     try {
-        const response = await fetch('/json/productos.json');
+        const response = await fetch('../json/productos.json');
         const data = await response.json();
         if (!localStorage.getItem("productos")) {
             localStorage.setItem("productos", JSON.stringify(data));
